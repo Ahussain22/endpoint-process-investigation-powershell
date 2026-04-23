@@ -26,7 +26,8 @@ Process creation logging was enabled using Group Policy:
 - Enabled **Include command line in process creation events**
 
 This allows Event ID **4688** to be recorded.
-
+![Audit Process Creation](./images/APC.png)
+![Audit CLI](./images/CLI.png)
 ---
 
 ## 🔍 Step 2: Generate Activity
@@ -38,7 +39,7 @@ powershell -Command "Start-Process notepad"
 ```
 
 This simulates PowerShell being used to execute another process.
-
+![Powershell](./images/powershell.png)
 ---
 
 ## 🔍 Step 3: Analyse Logs
@@ -49,7 +50,7 @@ Event Viewer → Windows Logs → Security
 
 Filtered logs using:
 - **Event ID 4688 (Process Creation)**
-
+![Event Viewer](./images/EventViewer.png)
 ---
 
 ## 🔍 Step 4: Key Findings
@@ -94,15 +95,6 @@ This means:
 - Parent-child relationships reveal how processes are executed
 - PowerShell is a high-risk tool often abused in cyber attacks
 - Endpoint logs are essential for detecting suspicious behaviour
-
----
-
-## 📸 Evidence
-
-(Add your screenshot here showing:)
-- Event ID 4688
-- NewProcessName (notepad.exe)
-- ParentProcessName (powershell.exe)
 
 ---
 
